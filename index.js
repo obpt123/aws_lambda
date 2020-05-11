@@ -1,6 +1,7 @@
 const aws = require("aws-sdk");
 const s3 = new aws.S3();
 const bucket = "ypbbucket";
+
 const getBucketText = (key) => {
     return new Promise((resolve, reject) => {
         s3.getObject({
