@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "scripts/deploy_lambda.sh ypb_lambda_node",
     "invoke": "scripts/invoke_lambda.sh ypb_lambda_node",
-    "create": "aws cloudformation create-stack --stack-name ypbstack --template-body file://lambda.json"
+    "create": "scripts/create_lambda.sh ypbstack",
+    "delete": "scripts/delete_lambda.sh ypbstack"
   },
   "author": "",
   "license": "ISC",
