@@ -6,11 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "scripts/deploy_lambda.sh ypb_lambda_node",
-    "invoke": "scripts/invoke_lambda.sh ypb_lambda_node"
+    "invoke": "scripts/invoke_lambda.sh ypb_lambda_node",
+    "create": "aws cloudformation create-stack --stack-name ypbstack --template-body file://lambda.json"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.673.0"
+    
   }
 }

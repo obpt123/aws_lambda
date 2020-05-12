@@ -1,0 +1,14 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Resources": {
+        "ypbnodelambda": {
+            "Type": "AWS::Lambda::Function",
+            "Properties": {
+                "Handler": "index.handler",
+                "Role": "arn:aws:iam::494526681395:role/for-aws-training-2",
+                "Runtime": "nodejs12.x",
+                "Timeout": 120
+            }
+        }
+    }
+}
