@@ -60,3 +60,22 @@ exports.handler = async (event) => {
         return res;
     }
 };
+exports.copy = async (event) => {
+    const from = event.from || "ypbbucket";
+    const to = event.to || "ypbbucket2"
+    const s3Objects = await s3.listObjects({ Bucket: from}).promise();
+    let res =[];
+    if(s3Objects.Contents.length) {
+        for (const o of s3Objects.Contents) {
+            if(!o.Key) continue;
+            let params = {
+                Bucket: to,
+                CopySource: `${from}/${o.Key}`,
+                Key: o.Key
+            }
+            await s3.copyObject(params).promise();
+            res.push(`copied object: ${from}/${o.Key} to ${to}/${o.Key}`);
+        };
+    }
+    return res;
+}
